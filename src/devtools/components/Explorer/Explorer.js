@@ -89,7 +89,9 @@ export const createBridgeLink = bridge =>
 
             remoteSchemaString =
               remoteSchemaString + ` ${directivesOnly.join("\n")}`;
-            remoteSchema = buildSchema(remoteSchemaString);
+            remoteSchema = buildSchema(remoteSchemaString, {
+              assumeValid: true,
+            });
 
             directives = directives.concat(remoteSchema._directives);
 
